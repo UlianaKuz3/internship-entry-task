@@ -1,0 +1,17 @@
+
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - TIC_TAC_TOE_CONNECTION=Data Source=/app/tictactoe.db
+    volumes:
+      - ./data:/app/data
+
+volumes:
+  tictactoe_data:
